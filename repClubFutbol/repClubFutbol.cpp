@@ -2,10 +2,98 @@
 //
 
 #include <iostream>
+#include<string>
+using namespace std;
+class EquipoFutbol
+{
+private:
+	string nombre, ciudad, estadio, apodoAficion;
+	int anioFundacion, capacidadEstadio;
+
+	
+
+
+public:
+	EquipoFutbol(string nom, string ciu, string est, string apod, int anio, int cap)
+	{
+		nombre = nom;
+		ciudad = ciu;
+		estadio = est;
+		apodoAficion = apod;
+		anioFundacion = anio;
+		capacidadEstadio = cap;
+	}
+	void setNombre(string nom)
+	{
+		nombre = nom;
+	}
+	string getNombre()
+	{
+		return nombre;
+	}
+	void setCiudad(string ciu)
+	{
+		ciudad = ciu;
+	}
+	string getCiudad()
+	{
+		return ciudad;
+	}
+	void setEstadio(string est)
+	{
+		estadio = est;
+	}
+	string getEstadio()
+	{
+		return estadio;
+	}
+	void setApodoAficion(string apod)
+	{
+		apodoAficion = apod;
+	}
+	string getApodoAficion()
+	{
+		return apodoAficion;
+	}
+	void setAnioFundacion(int anio)
+	{
+		anioFundacion = anio;
+	}
+	int getAnioFundacion()
+	{
+		return anioFundacion;
+	}	
+	void setCapacidadEstadio(int cap)
+	{
+		capacidadEstadio = cap;
+	}
+	int getCapacidadEstadio()
+	{
+		return capacidadEstadio;
+	}
+	void mostrarDatos()
+	{
+		cout << "Nombre: " << nombre << endl;
+		cout << "Ciudad: " << ciudad << endl;
+		cout << "Estadio: " << estadio << endl;
+		cout << "Apodo de la aficion: " << apodoAficion << endl;
+		cout << "Anio de fundacion: " << anioFundacion << endl;
+		cout << "Capacidad del estadio: " << capacidadEstadio << endl;
+	}
+	
+
+
+
+};
+
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	EquipoFutbol equipo1("Barcelona", "Barcelona", "Camp Nou", "Cules", 1899, 99354);
+	equipo1.mostrarDatos();
+	cout << "----------------------" << endl;
+
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
