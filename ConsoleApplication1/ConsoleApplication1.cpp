@@ -52,6 +52,43 @@ public:
 
 	}
 };
+
+class Cliente : public CuentaBancaria {
+private:
+	string direccion;
+	string telefono;
+
+public:
+	// Constructor
+	Cliente(string nombre, int numero, float saldo, string dir, string tel)
+		: CuentaBancaria(nombre, numero, saldo) { // 
+		this->direccion = dir;
+		this->telefono = tel;
+	}
+
+	void setDireccion(string dir) {
+		this->direccion = dir;
+	}
+	string getDireccion() {
+		return this->direccion;
+	}
+	void setTelefono(string tel) {
+		this->telefono = tel;
+	}
+	string getTelefono() {
+		return this->telefono;
+	}
+	void mostrarDatosCliente() {
+		mostrarDATOS();
+		cout << "Direccion: " << direccion << endl;
+		cout << "Telefono: " << telefono << endl;
+	}
+};
+
+
+
+
+
 int main()
 {
 	CuentaBancaria cuenta1("Gerson", 123456, 5000);
@@ -63,6 +100,20 @@ int main()
 	cuenta1.depositar(100);
 	cuenta1.mostrarDATOS();
 	cout << endl;
+	cout << "Datos del cliente" << endl;
+	Cliente cliente1("Gerson", 123456, 5000, "Av. Los Alamos", "987654321");
+	cliente1.mostrarDatosCliente();
+	cliente1.depositar(100);
+	cliente1.mostrarDatosCliente();
+	cout << endl;
+	cout << "Datos del clente actualizados" << endl;
+	cliente1.depositar(3000);
+	cliente1.mostrarDatosCliente();
+	cout << endl;
+	CuentaBancaria cuenta2("Juan", 123456, 5000);
+	Cliente cliente2("Juan", 123456, 5000, "Av. Los Alamos", "987654321");
+	cliente2.mostrarDatosCliente();
+	
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
