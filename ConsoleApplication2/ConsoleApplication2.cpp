@@ -94,6 +94,10 @@ int main() {
 	gerente2.descansar();
     cout << endl;
 
+	Empleado empleado1("Maria", "Sistemas", 8000);
+	empleado1.mostrarDatosEmpleado();
+	cout << endl;
+
     return 0;
 }
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
