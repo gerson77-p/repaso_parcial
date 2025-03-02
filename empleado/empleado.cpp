@@ -4,77 +4,93 @@
 #include <iostream>
 #include <string>
 using namespace std;
-class Empleado
-{
 
+class Empleado {
 private:
-	string nombre, departamento;
-	float salario;
+    string nombre;
+    string departamento;
+    float salario;
 
 public:
-	Empleado(string nombre, string depto, float salario) {
-		this->nombre = nombre;
-		this->departamento = depto;
-		this->salario = salario;
-	}
-	void setNombre(string nombre) {
-		this->nombre = nombre;
-	}
-	string getNombre() {
-		return this->nombre;
-	}
-	void setDepartamento(string depto) {
-		this->departamento = depto;
-	}
-	string getDepartamento() {
-		return this->departamento;
-	}
-	void setSalario(float salario) {
-		this->salario = salario;
-	}
-	int getSalario() {
-		return this->salario;
-	}
-	void mostrarDatosEmpleado() {
-		cout << "Nombre: " << nombre << endl;
-		cout << "Departamento: " << departamento << endl;
-		cout << "Salario: " << salario << endl;
-	}
-	void trabajar() {
-		cout << "Trabajando" << endl;
-	}
-	void descanzar() {
-		cout << "Descansando" << endl;
-	}
+   
+    Empleado(string nombre, string depto, float salario) {
+        this->nombre = nombre;
+        this->departamento = depto;
+        this->salario = salario;
+    }
+
+    // Setters y Getters
+    void setNombre(string nombre) {
+        this->nombre = nombre;
+    }
+    string getNombre() {
+        return this->nombre;
+    }
+
+    void setDepartamento(string depto) {
+        this->departamento = depto;
+    }
+    string getDepartamento() {
+        return this->departamento;
+    }
+
+    void setSalario(float salario) {
+        this->salario = salario;
+    }
+    float getSalario() {
+        return this->salario;
+    }
+
+    void mostrarDatosEmpleado() {
+        cout << "Nombre: " << nombre << endl;
+        cout << "Departamento: " << departamento << endl;
+        cout << "Salario: " << salario << endl;
+    }
+
+    void trabajar() {
+        cout << "Trabajando" << endl;
+    }
+
+    void descansar() { 
+        cout << "Descansando" << endl;
+    }
 };
 
-class Gerente : public Empleado
-{
+class Gerente : public Empleado {
 private:
-	string departamentoACargo;
-public:
-	Gerente(string nombre, string depto, float salario, string departamentoAcargo)
-		:Empleado(nombre, depto, salario) {
-		this->departamentoACargo = departamentoAcargo;
-	}
-	void setDepartamentoAcargo(string depto) {
-		this->departamentoACargo = depto;
-	}
-	string getDepartamentoAcargo() {
-		return this->departamentoACargo;
-	}
-	void mostrarDatosGerente() {
-		mostrarDatosEmpleado();
-		cout << "departamento a cargo: " << departamentoACargo << endl;
+    string departamentoAcargo;
 
-	}
+public:
+    
+    Gerente(string nombre, string depto, float salario, string departamentoAcargo)
+        : Empleado(nombre, depto, salario) {
+        this->departamentoAcargo = departamentoAcargo;
+    }
+
+    void setDepartamentoAcargo(string depto) {
+        this->departamentoAcargo = depto;
+    }
+    string getDepartamentoAcargo() {
+        return this->departamentoAcargo;
+    }
+
+    
+    void mostrarDatosGerente() {
+        mostrarDatosEmpleado(); 
+        cout << "Departamento a cargo: " << departamentoAcargo << endl;
+    }
 };
 
-int main()
-{
-	Gerente gerente1("Juan", "Sistemas", 10000, "Sistemas");
-	gerente1.mostrarDatosGerente();
+int main() {
+  
+    Gerente gerente1("Juan", "Sistemas", 10000, "Desarrollo");
+    gerente1.mostrarDatosGerente();
 
+   
+    gerente1.trabajar();
+    gerente1.descansar();
+
+    return 0;
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
