@@ -2,10 +2,79 @@
 //
 
 #include <iostream>
+#include <string>
+using namespace std;
+class Empleado
+{
+
+private:
+	string nombre, departamento;
+	float salario;
+
+public:
+	Empleado(string nombre, string depto, float salario) {
+		this->nombre = nombre;
+		this->departamento = depto;
+		this->salario = salario;
+	}
+	void setNombre(string nombre) {
+		this->nombre = nombre;
+	}
+	string getNombre() {
+		return this->nombre;
+	}
+	void setDepartamento(string depto) {
+		this->departamento = depto;
+	}
+	string getDepartamento() {
+		return this->departamento;
+	}
+	void setSalario(float salario) {
+		this->salario = salario;
+	}
+	int getSalario() {
+		return this->salario;
+	}
+	void mostrarDatosEmpleado() {
+		cout << "Nombre: " << nombre << endl;
+		cout << "Departamento: " << departamento << endl;
+		cout << "Salario: " << salario << endl;
+	}
+	void trabajar() {
+		cout << "Trabajando" << endl;
+	}
+	void descanzar() {
+		cout << "Descansando" << endl;
+	}
+};
+
+class Gerente : public Empleado
+{
+private:
+	string departamentoACargo;
+public:
+	Gerente(string nombre, string depto, float salario, string departamentoAcargo)
+		:Empleado(nombre, depto, salario) {
+		this->departamentoACargo = departamentoAcargo;
+	}
+	void setDepartamentoAcargo(string depto) {
+		this->departamentoACargo = depto;
+	}
+	string getDepartamentoAcargo() {
+		return this->departamentoACargo;
+	}
+	void mostrarDatosGerente() {
+		mostrarDatosEmpleado();
+		cout << "departamento a cargo: " << departamentoACargo << endl;
+
+	}
+};
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Gerente gerente1("Juan", "Sistemas", 10000, "Sistemas");
+	gerente1.mostrarDatosGerente();
+
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
